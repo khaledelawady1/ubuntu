@@ -24,6 +24,15 @@ install_apps() {
 
   # تثبيت Diodon (مدير الحافظة)
   sudo apt install diodon -y
+
+  # تثبيت .NET SDK لدعم C#
+  wget https://packages.microsoft.com/config/ubuntu/20.04/prod.list
+  sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+  sudo apt update
+  sudo apt install apt-transport-https -y
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.gpg
+  sudo apt update
+  sudo apt install dotnet-sdk-7.0 -y
 }
 
 # إعدادات VS Code (Extensions)
